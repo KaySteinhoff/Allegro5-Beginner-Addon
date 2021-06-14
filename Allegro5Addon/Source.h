@@ -11,72 +11,18 @@ using namespace std;
 class Source
 {
 	//Declaration of the variables (can be added in the Function too like in Unity)
-	bool movingRight = true;
-	int pX, pY;
-	Animation idle;
-	Animation walk;
 
 public:
 	
 	//Called at the start of the Application
 	void Start()
 	{
-		//Loading the Spritesheet for the animation(EventSystem is non-existent yet)
-		idle.animation = al_load_bitmap("Idle.png");
-		//Giving the number of Sprites contained
-		idle.numberOfSprites = 4;
-		//Setting Screenposition
-		idle.dx = pX;
-		idle.dy = pY;
-
-		walk.animation = al_load_bitmap("Dinowalk.png");
-		walk.numberOfSprites = 6;
-		walk.dx = pX;
-		walk.dy = pY;
+		
 	}
 
 	//Called every frame
 	void Update()
 	{
-		if (key[KS_AL_ADDON_KEY_DOWN])
-		{
-			if (key[KS_AL_ADDON_KEY_W])
-			{
-				pY -= 4;
-				walk.dy = pY;
-				idle.dy = pY;
-				walk.Show(NULL);
-			}
-			
-			if (key[KS_AL_ADDON_KEY_A])
-			{
-				pX -= 4;
-				walk.dx = pX;
-				idle.dx = pX;
-				walk.Show(ALLEGRO_FLIP_HORIZONTAL);
-			}
-			
-			if (key[KS_AL_ADDON_KEY_S])
-			{
-				pY += 4;
-				walk.dy = pY;
-				idle.dy = pY;
-				walk.Show(NULL);
-			}
-			
-			if (key[KS_AL_ADDON_KEY_D])
-			{
-				pX += 4;
-				walk.dx = pX;
-				idle.dx = pX;
-				walk.Show(NULL);
-			}
-		}
-		else
-		{
-			idle.Show(NULL);
-		}
 		
-
 	}
 };
