@@ -1,0 +1,51 @@
+Source.Start()
+
+This Function is contained in the Source header with is run when building the .exe.
+It is run only once at the Start of the Application. This used to initalize things like bitmaps or animations.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source.Update()
+
+This Function is contained in the Source header with is run when building the .exe.
+It is run every frame it is used to create dynamic elements like enemys or the player.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Addon.Distance(float x1, float y1, float x2, float y2)
+
+This function calculated the distance between two points.
+It takes in four floats for x and y form the points from whom to get the distance from.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Addon::Animation
+
+Takes in an Spritesheet as well as the number of sprites on it.
+Right now all the sprites need to be in one line from left to right.
+In version 1.1 multiline spritesheets will be supported.
+
+  -Addon::Animation.Show(int flag)
+  This function takes in an integer as a flag.
+  ALLEGRO_FLIP_HORIZONTAL => Flips the animation around the Y-axis
+  ALLEGRO_FLIP_VERTICAL   => Flips the animation around the X-axis
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Addon::Event
+
+Pre version of an animator.
+
+Takes in two Animations as well as an boolean.
+
+Bool false  => Playing the first Animation.
+Bool true   => Playing the second Animation.
+
+The boolean should be an reference boolean (decleared like so: bool& someBool = Addon::Event.condition;)
+
+  -Addon::Event.Run()
+  Checks for the condition and shows the needed one.
