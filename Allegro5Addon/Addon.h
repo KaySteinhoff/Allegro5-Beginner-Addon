@@ -41,9 +41,7 @@
 #pragma endregion
 bool key[28] = { false };
 
-bool cam2D = false, cam3D = false;
-
-//A very curde fix to set keys back to false after getting pressed
+//A very curde hack to set keys back to false after getting pressed
 void ResetKeys()
 {
 	for (int i = 0; i < 26; i++)
@@ -98,31 +96,7 @@ public:
 	}
 };
 
-void ks_al_addon_install_cam2D()
-{
-	cam3D = false;
-	cam2D = true;
-}
-
-class Animator
-{
-	bool* conditions;
-	Animation* anims;
-
-public:
-
-	void Run(int flag)
-	{
-		for (int i = 0; i < sizeof(conditions); i++)
-		{
-			if (!conditions[i])
-			{
-				anims[i + 1].Show(NULL);
-			}
-		}
-	}
-};
-
+//First step in the direction of an Animator
 class Event
 {
 public:
@@ -139,56 +113,6 @@ public:
 		else
 		{
 			this->animation2.Show(NULL);
-		}
-	}
-};
-
-class Character
-{
-public:
-	int pX, pY;
-	Animation walking;
-	Animation idle;
-
-	void Move()
-	{
-		if (key[KS_AL_ADDON_KEY_DOWN])
-		{
-			if (key[KS_AL_ADDON_KEY_W])
-			{
-				pY -= 4;
-				walking.dy = pY;
-				idle.dy = pY;
-				walking.Show(NULL);
-			}
-
-			if (key[KS_AL_ADDON_KEY_A])
-			{
-				pX -= 4;
-				walking.dx = pX;
-				idle.dx = pX;
-				walking.Show(ALLEGRO_FLIP_HORIZONTAL);
-			}
-
-			if (key[KS_AL_ADDON_KEY_S])
-			{
-				pY += 4;
-				walking.dy = pY;
-				idle.dy = pY;
-				walking.Show(NULL);
-			}
-
-			if (key[KS_AL_ADDON_KEY_D])
-			{
-				pX += 4;
-				walking.dx = pX;
-				idle.dx = pX;
-				walking.Show(NULL);
-			}
-		}
-		else
-		{
-			idle.Show(NULL);
 		}
 	}
 };
