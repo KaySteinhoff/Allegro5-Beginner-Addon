@@ -62,8 +62,6 @@ int mouseX, mouseY;
 
 ALLEGRO_MOUSE_STATE state;
 
-//class Linker;
-
 //A very curde fix to set keys back to false after getting pressed
 void ResetKeys()
 {
@@ -202,14 +200,7 @@ public:
 
 	void Show()
 	{
-		/*if (bg_img == NULL)
-		{
-			al_draw_scaled_bitmap(bg_img, 0, 0, al_get_bitmap_width(al_load_bitmap("defaultButton.jpg")), al_get_bitmap_height(al_load_bitmap("defaultButton.jpg")), dx, dy, wx, wy, NULL);
-		}
-		else
-		{*/
-			al_draw_scaled_bitmap(this->bg_img, 1, 1, al_get_bitmap_width(bg_img), al_get_bitmap_height(bg_img), dx, dy, wx, wy, NULL);
-		//}
+		al_draw_scaled_bitmap(this->bg_img, 1, 1, al_get_bitmap_width(bg_img), al_get_bitmap_height(bg_img), dx, dy, wx, wy, NULL);
 	}
 };
 
