@@ -155,13 +155,13 @@ This class contains six variables used to check if it currently is used, value t
 To use it first call Preload(int dx, int dy, int wx, int wy, float startingValue, ALLEGRO_BITMAP* handle) and fill in all the variables. Then call Run() to display and use it.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Matrix(only Experimental)
+Matrix
 This class is building the world space for the 3d model that will be displayed.
 
 To use this call the Matrix::setup_3D() function which will create and cache the world space. Then call UpadteMatrix(float fElapsedTime, Mesh mesh) to update to Matrix which will rotate the given 3d model. The default window Redraw time is 0.03 sec so this is the currently best option as fElapsedTime.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Mesh(only Experimental)
+Mesh
 This struct contains a vector of triangles to build the 3d model.
 
 To use this call LoadFromObjectFile(string sFilename) and enter the path to the 3d model (.obj files only).
