@@ -20,7 +20,7 @@ public:
 	void Start()
 	{
 		mat.setup_3D();
-		mesh.LoadFromObjectFile("icosphere.obj");
+		mesh.LoadFromObjectFile("cube.obj");
 	}
 
 	//Called everyframe
