@@ -254,12 +254,6 @@ public:
 		{
 			do
 			{
-				int caret = 0;
-				/*if ((key[KS_AL_ADDON_L_MOUSE_PRESSED] && mouseX < this->button.dx) && (mouseX > this->button.dx + this->button.wx && mouseY < this->button.dy) && mouseY > this->button.dy + this->button.wy && this->flag == KS_AL_ADDON_MULTI_ROW)
-				{
-					used = false;
-					return;
-				}*/
 				text.Show();
 				al_wait_for_event(event_queue, &ev);
 				if (ev.type == ALLEGRO_EVENT_KEY_CHAR) 
@@ -286,7 +280,7 @@ public:
 							text.Show();
 						}
 					}
-					else //if((inputChar >= 65 && inputChar <= 90) || (inputChar >= 97 && inputChar <= 122) || inputChar == 32)
+					else
 					{
 						text.content += (char)inputChar;
 						text.Show();
@@ -401,7 +395,6 @@ public:
 		if (used && key[KS_AL_ADDON_MOUSE_L_DOWN])
 		{
 
-			//this->handle.dx = mouseX;
 			if (mouseX < this->dx + 15 + this->wx && mouseX > this->dx + 1)
 			{
 				this->handle.dx = mouseX - 0.5 * this->wy;
@@ -428,7 +421,6 @@ class Animation
 	int currentX, currentY;
 
 public:
-	/*Linker link;*/
 	Point position;
 	int rows, collums;
 	int dx, dy;
