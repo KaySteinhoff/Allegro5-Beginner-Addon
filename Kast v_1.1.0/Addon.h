@@ -306,7 +306,6 @@ public:
 		if (used && key[KS_AL_ADDON_MOUSE_L_DOWN])
 		{
 
-			//this->handle.dx = mouseX;
 			if (mouseX < this->dx + 15 + this->wx && mouseX > this->dx + 1)
 			{
 				this->handle.dx = mouseX - 0.5 * this->wy;
@@ -333,7 +332,6 @@ class Animation
 	int currentX, currentY;
 
 public:
-	/*Linker link;*/
 	Point position;
 	int rows, collums;
 	int dx, dy;
