@@ -12,20 +12,17 @@ using namespace std;
 class Source
 {
 	//Declaration of the variables (can be added in the Function too like in Unity)
-	Matrix mat;
-	Mesh mesh;
 
 public:
 	//Called at the start of the Application
 	void Start()
 	{
-		mat.setup_3D();
-		mesh.LoadFromObjectFile("icosphere.obj");
+		
 	}
 
 	//Called everyframe
 	void Update()
 	{
-		mat.UpdateMatrix(0.03 , mesh);
+		
 	}
 };
