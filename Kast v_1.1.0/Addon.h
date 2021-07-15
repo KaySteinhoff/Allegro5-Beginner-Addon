@@ -53,36 +53,10 @@ typedef void (*customFunction)();
 
 #pragma endregion
 
-class Key
-{
-	bool wasPressed = false;
-	public:
-	bool held = false, pressed = false;
-
-	Key(){
-
-	}
-
-	void KeyPressed()
-	{
-		if (!wasPressed)
-		{
-			wasPressed = true;
-			pressed =  true;
-		}
-		else
-		{
-			pressed = false;
-		}
-	}
-};
-
 bool key[34];
 
 #define KS_AL_ADDON_SINGLE_ROW 31
 #define KS_AL_ADDON_MULTI_ROW 32
-
-bool cam2D = false, cam3D = false;
 
 int mouseX, mouseY;
 
@@ -236,101 +210,6 @@ public:
 		{*/
 			al_draw_scaled_bitmap(this->bg_img, 1, 1, al_get_bitmap_width(bg_img), al_get_bitmap_height(bg_img), dx, dy, wx, wy, NULL);
 		//}
-	}
-};
-
-class InputField
-{
-	Button button;
-	bool used;
-	int flag;
-public:
-	Text text;
-
-	void Preload(int dx, int dy, int wx, int wy, int fontSize, int color[3], int flag, ALLEGRO_BITMAP* img, const char* fontFilepath)
-	{
-		text.dx = dx + 7;
-		button.dx = dx;
-		text.dy = dy + 2;
-		text.fontsize = 18;
-		button.dy = dy;
-		button.wx = wx;
-		button.wy = wy;
-
-		text.fontFilepath = fontFilepath;
-		text.color[0] = color[0];
-		text.color[1] = color[1];
-		text.color[2] = color[2];
-		button.bg_img = img;
-
-		this->flag = flag;
-
-		text.LoadFont();
-		if (img == NULL)
-		{
-			button.bg_img = al_load_bitmap("defaultInputfield.png");
-		}
-		else
-		{
-			button.bg_img = img;
-		}
-	}
-
-	void Run()
-	{
-		button.Show();
-
-		if (button.ButtonPressed())
-		{
-			used = true;
-		}
-
-		while (used)
-		{
-			do
-			{
-				int caret = 0;
-				/*if ((key[KS_AL_ADDON_L_MOUSE_PRESSED] && mouseX < this->button.dx) && (mouseX > this->button.dx + this->button.wx && mouseY < this->button.dy) && mouseY > this->button.dy + this->button.wy && this->flag == KS_AL_ADDON_MULTI_ROW)
-				{
-					used = false;
-					return;
-				}*/
-				text.Show();
-				al_wait_for_event(event_queue, &ev);
-				if (ev.type == ALLEGRO_EVENT_KEY_CHAR) 
-				{
-					const int inputChar = ev.keyboard.unichar;
-					if (ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
-					{
-						if (this->flag == KS_AL_ADDON_SINGLE_ROW)
-						{
-							used = false;
-							return;
-						}
-						else
-						{
-							text.content += "\n";
-						}
-					}
-
-					if (ev.keyboard.keycode == ALLEGRO_KEY_BACKSPACE) 
-					{
-						if (text.content.length() > 0) 
-						{
-							text.content.pop_back();
-							text.Show();
-						}
-					}
-					else //if((inputChar >= 65 && inputChar <= 90) || (inputChar >= 97 && inputChar <= 122) || inputChar == 32)
-					{
-						text.content += (char)inputChar;
-						text.Show();
-					}
-				}
-			} while (!al_is_event_queue_empty(event_queue));
-		}
-
-		text.Show();
 	}
 };
 
@@ -497,42 +376,6 @@ public:
 
 	}
 };
-
-//class Linker
-//{
-//public:
-//	Animation animFrom;
-//	Animation* anims;
-//	bool* conditions;
-//
-//	void CheckCondition()
-//	{
-//
-//		for (int i = 0; i < sizeof(conditions); i++)
-//		{
-//			if (conditions[i] == true)
-//			{
-//				anims[i].link.CheckCondition();
-//				return;
-//			}
-//		}
-//
-//		animFrom.Show(NULL);
-//
-//	}
-//};
-//
-//class Animator
-//{
-//public:
-//	Animation baseAnim;
-//
-//	void Run()
-//	{
-//		baseAnim.link.CheckCondition();
-//	}
-//
-//};
 
 class Event
 {
