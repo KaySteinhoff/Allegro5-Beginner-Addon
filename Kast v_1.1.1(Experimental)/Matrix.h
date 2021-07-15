@@ -98,7 +98,7 @@ void MultiplyMatrixVector(vec3d& i, vec3d& o, mat4x4& m)
 	}
 }
 
-struct Matrix
+class Matrix
 {
 public:
 
