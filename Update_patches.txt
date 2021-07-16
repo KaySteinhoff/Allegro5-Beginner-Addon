@@ -1,0 +1,16 @@
+Kast v1.1.0 (The UI update)
+
+In the new version of Kast 1.1.0 various elements regarding the user interface were added.
+
+New UI classes:
+
+Addon::Text
+Addon::Button
+Addon::Inputfield(only Kast v1.1.1(Experimental))
+Addon::Checkbox
+Addon::Slider
+
+Other changes:
+
+Animations are now able to read multiline Spritesheets, Addon::ScanForMouse() returns the current state of the mouse buttons(left, right and middle 
+other mouse Inputs have to be added by yourself), Kast is now able to Render single 3D models using Matrix::Matrix and Matrix::Mesh (for use please look up API.txt)
